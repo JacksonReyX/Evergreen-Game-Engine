@@ -58,6 +58,7 @@ CMakeFiles/
 cmake_install.cmake
 */CMakeFiles/
 */CMakeCache.txt
+cmake-build-debug/
 
 # Visual Studio files (if using VS)
 .vscode/
