@@ -209,9 +209,6 @@ void Game::update()
 	}
 
 	// Perform the subscription of the events for all systems
-	//registry_->getSystem<DamageSystem>().subscribeToEvents(event_bus_);
-	// registry_->getSystem<KeyboardControlSystem>().subscribeToEvents(event_bus_);
-	//registry_->getSystem<ProjectileEmitSystem>().subscribeToEvents(event_bus_);
 	registry_->getSystem<PlayerMovementSystem>().subscribeToEvents(event_bus_);
 	registry_->getSystem<CollisionResolutionSystem>().subscribeToEvents(event_bus_);
 	// Update the registry to process the entities that are waiting to be created/deleted
@@ -223,12 +220,14 @@ void Game::update()
 	// registry_->getSystem<AnimationSystem>().update();
 	// registry_->getSystem<ProjectileEmitSystem>().update(elapse_time.asSeconds(), registry_);
 	// registry_->getSystem<ProjectileLifecycleSystem>().update(elapse_time.asSeconds());
-	// registry_->getSystem<CameraMovementSystem>().update(camera, *this);
 
 	// ImGui::SFML::Update(window_, elapse_time);
 	//registry_->getSystem<PlayerMovementSystem>().movePlayer();
+
 	registry_->getSystem<AnimationSystem>().update();
 	registry_->getSystem<CollisionResolutionSystem>().update(event_bus_);
+	registry_->getSystem<CameraSystem>().followPlayerUpdate(&camera);
+	registry_->getSystem<CameraSystem>().testCameraZoom(&camera);
 }
 void Game::render()
 {
@@ -240,8 +239,7 @@ void Game::render()
 	// Sprites first so the tilemap and artwork sit behind the primitives
 	registry_->getSystem<RenderSpriteSystem>().update(asset_store_, camera, &texture);
 	registry_->getSystem<CollisionResolutionSystem>().DrawCollisionRectangles();
-	registry_->getSystem<CameraSystem>().followPlayerUpdate(&camera);
-	registry_->getSystem<CameraSystem>().testCameraZoom(&camera);
+
 
 	// registry_->getSystem<RenderShapeSystem>().update(&window_, camera);
 	// if (show_colliders)
