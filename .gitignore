@@ -1,0 +1,75 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Ignored default folder with query files
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Compiled Object files
+*.d
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories
+build/
+build-debug/
+x64/
+
+# IDE and Editor files
+.idea/
+.vs/
+*.swp
+*.swo
+.DS_Store
+
+# CMake related
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*/CMakeFiles/
+*/CMakeCache.txt
+
+# Visual Studio files (if using VS)
+.vscode/
+*.vsixmanifest
+*.vsixdcs.json
+*.vcxproj
+*.sln*
+**/.vscode/**
+
+# Other build artifacts
+*.pid
+*.log
+*.tmp
+*.out
+*~
